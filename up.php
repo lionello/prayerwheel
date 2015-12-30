@@ -43,18 +43,18 @@ if (intval($count) > 0)
 	$count2 = mysql_real_escape_string($count, $link);
 
 	// Update the 'count' column for this user
-	//mysql_query("INSERT IGNORE prayers.Counts (id,uuid) VALUES(NULL,\"$uuid2\")", $link);
-	mysql_query("UPDATE prayers.Counts SET count = \"$count2\" WHERE uuid = \"$uuid2\" AND count < \"$count2\"", $link)
+	//mysql_query("INSERT IGNORE Counts (id,uuid) VALUES(NULL,\"$uuid2\")", $link);
+	mysql_query("UPDATE Counts SET count = \"$count2\" WHERE uuid = \"$uuid2\" AND count < \"$count2\"", $link)
 		or die('mysql_query UPDATE error'.mysql_error());
 	if (mysql_affected_rows($link) != 1)
 	{
 		// Nothing got update, either because of missing UUID or smaller count
-		mysql_query("INSERT IGNORE prayers.Counts (id,uuid,count) VALUES(NULL,\"$uuid2\",\"$count2\")", $link)
+		mysql_query("INSERT IGNORE Counts (id,uuid,count) VALUES(NULL,\"$uuid2\",\"$count2\")", $link)
 	                or die('mysql_query INSERT error'.mysql_error());
 	}
 	if ($count > 32000)
 	{
-	        mysql_query("UPDATE prayers.Counts SET banned = 1 WHERE uuid = \"$uuid2\"", $link)
+	        mysql_query("UPDATE Counts SET banned = 1 WHERE uuid = \"$uuid2\"", $link)
         	        or die('mysql_query UPDATE2 error'.mysql_error());
  	}
 	mysql_close($link);
@@ -95,19 +95,19 @@ if (isset($nick))
 	$nick2 = mysql_real_escape_string($nick, $link);
 
 	// Update the nickname for this uuid
-	mysql_query('UPDATE prayers.Counts SET nickname = "'.$nick2.'" WHERE uuid = "'.$uuid2.'"', $link)
+	mysql_query('UPDATE Counts SET nickname = "'.$nick2.'" WHERE uuid = "'.$uuid2.'"', $link)
 		or die('mysql_query UPDATE2 error'.mysql_error());
 }
 else
 {
-	$result = mysql_query('SELECT nickname FROM prayers.Counts WHERE uuid = "'.$uuid2.'"', $link);
+	$result = mysql_query('SELECT nickname FROM Counts WHERE uuid = "'.$uuid2.'"', $link);
 	$row = mysql_fetch_array($result, MYSQL_NUM);
 	if ($row)
 		$nick = $row[0];
 	mysql_free_result($result);
 }
 
-$result = mysql_query('SELECT SUM(count) FROM prayers.Counts', $link)
+$result = mysql_query('SELECT SUM(count) FROM Counts', $link)
 	or die('mysql_query SELECT error'.mysql_error());
 $row = mysql_fetch_array($result, MYSQL_NUM)
 	or die('mysql_fetch_array error'.mysql_error());
