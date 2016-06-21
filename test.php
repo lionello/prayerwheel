@@ -10,7 +10,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 <title>Prayer Wheel</title>
 <meta name="keywords" content="buddhist, prayer wheel, prayer, prayerwheel, mindfulness" />
 <?php
-require "Mobile_Detect.php";
+require 'Mobile_Detect.php';
 $md = new Mobile_Detect();
 if ($md->isMobile()) echo "<style type='text/css'>#qrcode { display:none; }</style>"
 ?>
@@ -41,7 +41,7 @@ if ($md->isMobile()) echo "<style type='text/css'>#qrcode { display:none; }</sty
 				</li>
 				<li>
 					<h2>Number of turns</h2>
-<?php require "db.php"; ?>
+<?php require_once 'db.php'; ?>
 					<p>Prayer wheel app users have sent <?=$total?> prayers into the world.</p>
 				</li>
 				<li>
@@ -61,7 +61,7 @@ if ($md->isMobile()) echo "<style type='text/css'>#qrcode { display:none; }</sty
 				<h1 class="title">About prayer wheels</h1>
 				<div class="entry">
 					<p><strong>Prayer wheels </strong> are cylindrical 'wheels' with prayers written on them - traditionally, the mantra <em>Om Mani Padme Hum</em>. Prayer wheels are used by buddhists in and around Tibet. The wheels turn on a spindle; each revolution sends a prayer into the world. It is believed that spinning a prayer wheel is the same as orally reciting the prayer. Digital prayer wheels are supposed to work the same way, radiating peaceful prayers all around your computer or handheld.</p>
-					<p><em>Mani</em> wheels are always spun clockwise, so the syllables of the mantra are rotated in such a way that they pass the viewer in the order they would be read. 
+					<p><em>Mani</em> wheels are always spun clockwise, so the syllables of the mantra are rotated in such a way that they pass the viewer in the order they would be read.
 				</div>
 			</div>
 			<div class="post">
@@ -83,7 +83,7 @@ if ($md->isMobile()) echo "<style type='text/css'>#qrcode { display:none; }</sty
 			<ul>
 				<li>
 					<h2>Download prayer wheel</h2>
-<?php if (!$md->isMobile()) echo "<p><img src='qrcode.png'/></p>"; ?>					
+<?php if (!$md->isMobile()) echo "<p><img src='qrcode.png'/></p>"; ?>
 					<p><a href="market://details?id=com.lunesu.prayerwheel">Download here for Android</a></p>
 				</li>
 				<li>

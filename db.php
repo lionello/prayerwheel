@@ -5,7 +5,7 @@ USE prayers;
 CREATE TABLE Counts (id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, uuid CHAR(36) NOT NULL, nickname TEXT, count BIGINT DEFAULT 0,
  	last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 CREATE UNIQUE INDEX IDX_Counts_uuid ON Counts (uuid);
-GRANT ALL ON Counts TO ''@'localhost';
+GRANT ALL ON prayers.Counts TO ''@'localhost';
 */
 require_once 'inc/db.php';
 
@@ -27,7 +27,7 @@ if (isset($uuid))
 		// Create SQL-safe uuid
 		$uuid2 = mysql_real_escape_string($uuid, $link);
 		// Retrieve the current count for this user
-		$result = mysql_query("SELECT count FROM Counts WHERE uuid = \"$uuid2\"", $link);
+		$result = mysql_query("SELECT count FROM prayers.Counts WHERE uuid = \"$uuid2\"", $link);
 		$row = mysql_fetch_array($result, MYSQL_NUM);
 		if ($row)
 			$count = $row[0];
@@ -35,7 +35,7 @@ if (isset($uuid))
 			unset($count);
 		mysql_free_result($result);
 		/*
-		$result = mysql_query('SELECT nickname FROM Counts WHERE uuid = "'.$uuid2.'"', $link);
+		$result = mysql_query('SELECT nickname FROM prayers.Counts WHERE uuid = "'.$uuid2.'"', $link);
 		$row = mysql_fetch_array($result, MYSQL_NUM);
 		if ($row)
 			$nick = $row[0];
@@ -47,13 +47,13 @@ if (isset($uuid))
 
 if (intval($count) > 32000)
 {
-	$result = mysql_query('SELECT SUM(count) FROM Counts', $link)
+	$result = mysql_query('SELECT SUM(count) FROM prayers.Counts', $link)
 		or die('mysql_query SELECT error'.mysql_error());
 	$banned = true;
 }
 else
 {
-	$result = mysql_query('SELECT SUM(count) FROM Counts WHERE banned IS NULL', $link)
+	$result = mysql_query('SELECT SUM(count) FROM prayers.Counts WHERE banned IS NULL', $link)
         	or die('mysql_query SELECT error'.mysql_error());
 }
 $row = mysql_fetch_array($result, MYSQL_NUM)
