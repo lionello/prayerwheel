@@ -1,0 +1,18 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 3
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "com.lunesu.prayerwheel"
+        minSdkVersion 3
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
