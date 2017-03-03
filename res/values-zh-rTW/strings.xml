@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="buttonText">上載</string>
+<string name="app_name">轉經筒</string>
+<string name="menu_help">幫助</string>
+<string name="help_url">file:///android_asset/help-zh-rHK.html</string>
+<string name="help_title">轉經筒</string>
+<string name="help_summary">關於轉經筒</string>
+<string name="menu_edit">設置</string>
+<string name="menu_info">總數</string>
+</resources>

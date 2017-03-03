@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<string-array name="preferences"><item>Om mani padme hum (Tibetan)</item>
+<item>Om mani padme hum (Sanskrit)</item><item>Om tare tuttare ture soha (Tibetan)</item>
+
+<item>Om tare tuttare ture soha (Sanskrit)</item>
+</string-array>
+<string-array name="preferences_values"><item>tibetan</item>
+<item>sanskrit</item><item>omtaretuttareturesoha_tibetan</item>
+
+<item>omtaretuttareturesoha_sanskrit</item>
+</string-array>
+
+</resources>

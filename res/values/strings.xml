@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="buttonText">Upload your prayers</string>
+    
+    <string name="app_name">Prayer Wheel</string>
+<string name="wrong_way">Wrong way!</string>
+<string name="menu_edit">Settings</string>
+<string name="menu_silent">Mute the chanting</string>
+<string name="menu_silent_off">Unmute the chanting</string>
+<string name="menu_info">Stats</string>
+<string name="pick_color">Pick a color</string>
+<string name="info">Each turn of the wheel offers the same benefits as reciting the prayer out loud.</string>
+<string name="info_title">Number of prayers: %s</string>
+<string name="help_title">Prayer Wheel</string>
+<string name="menu_help">Help</string>
+<string name="pick_color_ok">OK</string>
+<string name="sound_title">Silent mode</string>
+<string name="color_title">Text color</string>
+<string name="color_summary">Change the color of the mantra</string>
+<string name="mantra_title">Mantra</string>
+<string name="help_summary">Information about prayerwheels</string>
+<string name="help_url">file:///android_asset/help.html</string>
+</resources>

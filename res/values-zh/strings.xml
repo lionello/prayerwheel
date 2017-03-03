@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="buttonText">上载</string>
+<string name="wrong_way">顺时针地转！</string>
+<string name="app_name">转经筒</string>
+<string name="help_title">转经筒</string>
+<string name="help_url">file:///android_asset/help-zh.html</string>
+<string name="help_summary">关于转经筒</string>
+<string name="menu_help">帮助</string>
+<string name="menu_edit">设置</string>
+<string name="menu_info">总数</string>
+</resources>
