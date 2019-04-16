@@ -66,3 +66,4 @@ fastlane/readme.md
 
 data/
 import-summary.txt
+.DS_Store
