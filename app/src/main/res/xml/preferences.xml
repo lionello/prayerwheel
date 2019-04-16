@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
-  xmlns:android="http://schemas.android.com/apk/res/android">
-<CheckBoxPreference android:summaryOn="@string/menu_silent_off" android:key="silentMode" android:summaryOff="@string/menu_silent" android:title="@string/sound_title"></CheckBoxPreference>
-<com.lunesu.prayerwheel.MantraPreference android:entries="@array/preferences" android:entryValues="@array/preferences_values" android:dialogTitle="@string/mantra_title" android:title="@string/mantra_title" android:key="mantra"/>
-<com.lunesu.prayerwheel.ColorPreference android:key="color" android:summary="@string/color_summary" android:defaultValue="-1" android:title="@string/color_title"/>
-<Preference android:summary="@string/help_summary" android:title="@string/menu_help" android:key="help" android:persistent="false"></Preference>
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:summaryOn="@string/menu_silent_off" android:key="silentMode" android:summaryOff="@string/menu_silent" android:title="@string/sound_title"></CheckBoxPreference>
+    <com.lunesu.prayerwheel.MantraPreference android:entries="@array/preferences" android:entryValues="@array/preferences_values" android:dialogTitle="@string/mantra_title" android:title="@string/mantra_title" android:key="mantra"/>
+    <com.lunesu.prayerwheel.ColorPreference android:key="color" android:summary="@string/color_summary" android:defaultValue="-1" android:title="@string/color_title"/>
+    <Preference android:summary="@string/help_summary" android:title="@string/menu_help" android:key="help" android:persistent="false"></Preference>
 </PreferenceScreen>
