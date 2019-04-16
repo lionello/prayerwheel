@@ -12,8 +12,10 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -27,8 +29,7 @@ import android.widget.Button;
  * + How to redraw in response to user input.
  */
 public class PrayerWheelActivity extends Activity {
-	
-   
+
     private static final String PREFS_SILENTMODE = "silentMode";
     private static final String PREFS_PRAYERS = "prayers";
     private static final String PREFS_MANTRA = "mantra";
@@ -48,16 +49,31 @@ public class PrayerWheelActivity extends Activity {
 	//private static final int MENU_MANTRA = 5;
 	
     private TouchSurfaceView mGLSurfaceView;
+    private GestureDetector mGestureDetector;
 
     private String uuid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        // Create our Preview view and set it as the content of our
-        // Activity
+
+        // Listen for long-press to show options menu for devices without HW menu button
+        mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public void onLongPress(MotionEvent e) {
+                openOptionsMenu();
+            }
+        });
+        mGestureDetector.setIsLongpressEnabled(true);
+
+        // Create our Preview view and set it as the content of our Activity
         mGLSurfaceView = new TouchSurfaceView(this);
+        mGLSurfaceView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return mGestureDetector.onTouchEvent(motionEvent);
+            }
+        });
 
         applyPreferences();
         
@@ -79,8 +95,11 @@ public class PrayerWheelActivity extends Activity {
         	mGLSurfaceView.setPrayers(prayers);
    	
         // Show help on first launch
-        if (prayers == 0)
-        	onMenuHelpClicked(this);
+        if (prayers == 0) {
+            onMenuHelpClicked(this);
+        }
+
+
     }
 
 	/*private void updateSilentIcon(MenuItem item) {
